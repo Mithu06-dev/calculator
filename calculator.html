@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+    <link rel="icon" href="images.png" type="image/png">
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #ecf0f3;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            outline: none;
+        }
+        .main{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .two{
+            background-color: #ecf0f3;
+            padding: 15px;
+            border-radius: 30px;
+            box-shadow: inset 5px 5px 12px #ffffff,
+                               5px 5px 12px rgba(0,0, 0, .16);
+            display: grid;
+            grid-template-columns: repeat(4,68px);
+
+        }
+       #input{
+            grid-column: span 4;
+            height: 70px;
+            width: 260px;
+            background-color: #ecf0f3;
+            box-shadow: inset -5px -5px 12px #ffffff,
+                               inset 5px 5px 12px rgba(0,0, 0, .16);
+            border: none;
+            border-radius: 30px;
+            color: rgb(70,70, 70);
+            font-size: 50px;
+            text-align: end;
+            margin: auto;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            padding: 20px;
+
+        }
+        button{
+            height: 48px;
+            width: 48px;
+            background-color: #ecf0f3;
+            box-shadow:inset -5px -5px 12px #ffffff,
+                               inset 5px 5px 12px rgba(0,0, 0, .16);
+            
+            border: none;
+            border-radius: 50%;
+            font-size: 16px;
+
+        }
+        #red{
+            background-color: crimson;
+            color:whitesmoke;
+            border-color: crimson 1px;
+            
+        }
+        #gold{
+            background-color: darkgoldenrod;
+            color: black;
+            border-color: darkgoldenrod;
+        }
+       
+         #blue{
+            background-color: rgb(6, 248, 248);
+            color: black;
+            border-color: rgb(0, 255, 255);
+         }
+         #gray{
+            background-color: rgb(211, 207, 207);
+            color: black;
+            border-color: rgb(211, 204, 204);
+         }
+        
+h1{
+    margin-left: 560px;
+   margin-top: 50px;
+  
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-weight: bold;
+  color: rgb(231, 148, 165);
+  text-shadow: black 1px;
+ 
+  
+}        
+
+
+    </style>
+   <h1>CALCULATOR </h1>
+    <div class="main">
+               
+         <div class="two">
+         
+          <input type="text" placeholder="0" id="input">
+         
+             <button onclick="clear()" id="gold">C</button>
+             <button onclick="del()" id="blue">DEL</button>
+             <button onclick="check('/')" id="gray">/</button>
+             <button onclick="calculator()" id="red">=</button>
+             <button onclick="check('+')" id="gray">+</button>
+             <button onclick="check('9')">9</button>
+             <button onclick="check('8')">8</button>
+             <button onclick="check('7')">7</button>
+             <button onclick="check('*')" id="gray">*</button>
+             <button onclick="check('6')">6</button>
+             <button onclick="check('5')">5</button>
+             <button onclick="check('4')">4</button>
+             <button onclick="check('-')" id="gray">-</button>
+             <button onclick="check('3')">3</button>
+             <button onclick="check('2')">2</button>
+             <button onclick="check('1')">1</button>
+             <button onclick="check('%')" id="gray">%</button>
+             <button onclick="check('0')">0</button>
+            
+          </div>
+    </div>
+
+    <script>
+        let output=document.getElementById("input")
+        function check(num){
+          output.value+=num
+
+        }
+        function calculator(){
+            try{
+               output.value=eval(output.value) 
+            }
+            catch(err){
+                alert("invalid inputs please change")
+            }
+        }
+        function clear(){
+            output.value = "";
+        }
+        function del(){
+            output.value=output.value.slice(0,-1)
+        }
+    </script>
+</body>
+</html>
